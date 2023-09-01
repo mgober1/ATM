@@ -71,7 +71,7 @@ public class ATM
     
     public double withdrawMoney (String userID, double amount)
     {
-        if (amount < mapOfAccounts.get(userID))
+        if (amount <= mapOfAccounts.get(userID))
         {
             amount =  mapOfAccounts.get(userID) - amount;
             mapOfAccounts.put(userID, amount);
@@ -83,4 +83,20 @@ public class ATM
         }
     }
     
+    public boolean transferMoney (String fromAccount, String toAccount, double amount)
+    {
+        if (amount <= mapOfAccounts.get(fromAccount))
+        {
+            double balance = amount;
+            amount = mapOfAccounts.get(fromAccount) - amount;
+            mapOfAccounts.put(fromAccount, amount);
+            amount += mapOfAccounts.get(toAccount);
+            mapOfAccounts.put(toAccount, balance);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
