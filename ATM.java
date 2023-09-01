@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ATM
 {
@@ -17,6 +18,7 @@ public class ATM
     {
         return mapOfAccounts;
     }
+
     public void openAccount (String userID, double amount)
     {
         if (!mapOfAccounts.containsKey(userID))
@@ -26,6 +28,18 @@ public class ATM
         else
         {
             throw new IllegalArgumentException("User ID already exists");
+        }
+    }
+
+    public void closeAccount (String userID)
+    {
+        if (Objects.equals(mapOfAccounts.get(userID), 0.0))
+        {
+            mapOfAccounts.remove(userID);
+        }
+        else
+        {
+            throw new IllegalArgumentException("Withdraw " + mapOfAccounts.get(userID) + "$ before closing");
         }
     }
 }
