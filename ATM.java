@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -98,5 +100,16 @@ public class ATM
         {
             return false;
         }
+    }
+
+    public void audit() throws FileNotFoundException 
+    {
+        PrintWriter writer = new PrintWriter ("AccountAudit.txt");
+        for (String account : mapOfAccounts.keySet())
+        {
+            writer.println(account);
+            writer.println("" + mapOfAccounts.get(account));
+        }
+        writer.close();
     }
 }
