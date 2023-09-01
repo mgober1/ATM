@@ -5,10 +5,12 @@ public class Tester
     public static void main (String [] args)
     {
         ATM teller = new ATM();
-        teller.openAccount("mgober1", 0);
         HashMap accounts = teller.getAccounts();
-        System.out.println(accounts.get("mgober1"));
-        teller.closeAccount("mgober1");
-        teller.getAccounts();
+        teller.openAccount("mgober1", 69.00);
+        System.out.println(teller.checkBalance("mgober1"));
+        teller.depositMoney("mgober", 351.00);
+        //teller.closeAccount("mgober1");
+        System.out.println(teller.checkBalance("mgober1"));
+        //teller.getAccounts();
     }
 }

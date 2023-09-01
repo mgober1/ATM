@@ -42,4 +42,16 @@ public class ATM
             throw new IllegalArgumentException("Withdraw " + mapOfAccounts.get(userID) + "$ before closing");
         }
     }
+
+    public double checkBalance (String userID)
+    {
+        if (mapOfAccounts.containsKey(userID))
+        {
+            return mapOfAccounts.get(userID);
+        }
+        else
+        {
+            throw new IllegalArgumentException("This account does not exist");
+        }
+    }
 }
