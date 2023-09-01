@@ -54,4 +54,18 @@ public class ATM
             throw new IllegalArgumentException("This account does not exist");
         }
     }
+
+    public double depositMoney (String userID, double amount)
+    {
+        if (mapOfAccounts.containsKey(userID))
+        {
+            amount += mapOfAccounts.get(userID);
+            mapOfAccounts.put(userID, amount);
+            return amount;
+        }
+        else
+        {
+            throw new IllegalArgumentException("You have no money");
+        }
+    }
 }
