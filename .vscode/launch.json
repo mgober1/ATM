@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ATMTester",
+            "request": "launch",
+            "mainClass": "ATMTester",
+            "projectName": "ATM_6439203e"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

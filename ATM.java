@@ -92,7 +92,7 @@ public class ATM
             double balance = amount;
             amount = mapOfAccounts.get(fromAccount) - amount;
             mapOfAccounts.put(fromAccount, amount);
-            amount += mapOfAccounts.get(toAccount);
+            balance += mapOfAccounts.get(toAccount);
             mapOfAccounts.put(toAccount, balance);
             return true;
         }
@@ -107,8 +107,7 @@ public class ATM
         PrintWriter writer = new PrintWriter ("AccountAudit.txt");
         for (String account : mapOfAccounts.keySet())
         {
-            writer.println(account);
-            writer.println("" + mapOfAccounts.get(account));
+            writer.println(account + " " + mapOfAccounts.get(account));
         }
         writer.close();
     }
