@@ -68,4 +68,19 @@ public class ATM
             throw new IllegalArgumentException("You have no money");
         }
     }
+    
+    public double withdrawMoney (String userID, double amount)
+    {
+        if (amount < mapOfAccounts.get(userID))
+        {
+            amount =  mapOfAccounts.get(userID) - amount;
+            mapOfAccounts.put(userID, amount);
+            return amount;
+        }
+        else
+        {
+            throw new IllegalArgumentException("You have insufficient funds");
+        }
+    }
+    
 }

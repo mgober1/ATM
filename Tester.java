@@ -8,7 +8,8 @@ public class Tester
         HashMap accounts = teller.getAccounts();
         teller.openAccount("mgober1", 69.00);
         System.out.println(teller.checkBalance("mgober1"));
-        teller.depositMoney("mgober", 351.00);
+        teller.depositMoney("mgober1", 351.00);
+        teller.withdrawMoney("mgober1", 69420.00);
         //teller.closeAccount("mgober1");
         System.out.println(teller.checkBalance("mgober1"));
         //teller.getAccounts();
